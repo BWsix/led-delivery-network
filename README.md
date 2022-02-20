@@ -1,5 +1,7 @@
 # Led Delivery Network
 
+![成品](/public/led.jpg "成品")
+
 ## Setup a Development Environment
 
 - install [nodejs](https://nodejs.org/en/)
@@ -171,48 +173,6 @@
   console.log(person); // output: { name: "bob", age: 20 }
   console.log(person.age); // output: 20
   person.greet(); // output: hey
-  ```
-
-- interfaces (typescript)
-
-  ```ts
-  interface PersonProps {
-    name: string;
-    age: number;
-  }
-
-  const func = (props: PersonProps) => {
-    console.log(props);
-  };
-
-  const person = {
-    name: "bob",
-    age: 20,
-  };
-
-  func(person); // output: { name: "bob", age: 20 }
-
-  func({ name: "bob", age: 10 }); // ok
-  func({ name: 10, age: 10 }); // error (Type 'number' is not assignable to type 'string')
-  func({ name: "bob" }); // error ('age' is declared here)
-  ```
-
-  ```ts
-  const doNothing = () => {};
-
-  const greet = (name: string) => {
-    return "hello" + name;
-  };
-
-  const sum = (a: number, b: number) => {
-    return a + b;
-  };
-
-  interface FunctionProps {
-    doNothing: () => void;
-    greet: (name: string) => string;
-    sum: (a: number, b: number) => number;
-  }
   ```
 
 ## Code Snippets
