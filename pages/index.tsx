@@ -1,11 +1,16 @@
 import axios from "axios";
-import type { GetServerSideProps, NextPage } from "next";
+import type { NextPage } from "next";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
   const led = async (status: "on" | "off") => {
     const result = await axios.get(`http://localhost:3000/api/led?${status}=1`);
     console.log(result.data);
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/led");
+  }, []);
 
   return (
     <>
@@ -16,11 +21,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  await axios.get("http://localhost:3000/api/led?init=1");
-
-  return {
-    props: {},
-  };
-};
