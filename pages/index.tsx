@@ -4,12 +4,13 @@ import { useEffect } from "react";
 
 const Home: NextPage = () => {
   const led = async (status: "on" | "off") => {
-    const result = await axios.get(`http://localhost:3000/api/led?${status}=1`);
+    const url = "/api/led?" + status + "=1";
+    const result = await axios.get(url);
     console.log(result.data);
   };
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/led");
+    axios.get("/api/led");
   }, []);
 
   return (

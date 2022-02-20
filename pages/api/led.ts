@@ -27,4 +27,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     emitter.emit("off");
     return res.end("off");
   }
+
+  return res.json(req.query);
 }
